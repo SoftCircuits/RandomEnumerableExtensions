@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>SoftCircuits.RandomEnumerableExtensions</PackageId>
+    <Authors>Jonathan Wood</Authors>
+    <Company>SoftCircuits</Company>
+    <Copyright>Copyright © 2019 SoftCircuits</Copyright>
+    <PackageProjectUrl>https://github.com/SoftCircuits/RandomEnumerableExtensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SoftCircuits/RandomEnumerableExtensions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>random shuffle extension-methods ienumerable</PackageTags>
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Description>The RandomEnumerableExtensions class library defines Random() and Shuffle() methods. The methods are implemented as extension methods and so they are available as methods on any collection that implements IEnumerable&lt;T&gt; when the library is referenced and visible (via "using" statement).
+
+The Random() method returns one item randomly chosen from the collection. The Shuffle() method reorders the collection . If the collection implements IList&lt;T&gt;, the items are shuffled in place. Otherwise, the collection is copied in random order.</Description>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
