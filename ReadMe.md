@@ -12,6 +12,8 @@ The RandomEnumerableExtensions class library defines `Random()` and `Shuffle()` 
 
 The `Random()` method returns one item randomly chosen from the collection. The `Shuffle()` method reorders the collection . If the collection implements `IList<T>`, the items are shuffled in place. Otherwise, the collection is copied in random order.
 
+Note that there are overloads of the `Random` and `Shuffle` methods that do not require an instance of `System.Random`. However, these methods must allocate their own instance of `System.Random` each time they are called. Allocating your own instance of `System.Random` and then passing it to these functions may provide better performance and possibly a little more randomness.
+
 ## Examples
 
 The code below demonstrates the random extension methods. It starts by creating a list with sequential integers and displays that list. Next, it prints randomly chosen items from the list. And, finally, it shuffles the entire list and prints the shuffled list.
