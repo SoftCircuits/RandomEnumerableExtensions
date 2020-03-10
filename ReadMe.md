@@ -10,7 +10,9 @@ Install-Package SoftCircuits.RandomEnumerableExtensions
 
 The RandomEnumerableExtensions class library defines `Random()` and `Shuffle()` methods. The methods are implemented as extension methods and so they are available as methods on any collection that implements `IEnumerable<T>` when the library is referenced and visible (via `using` statement).
 
-The `Random()` method returns one item randomly chosen from the collection. The `Shuffle()` method reorders the collection . If the collection implements `IList<T>`, the items are shuffled in place. Otherwise, the collection is copied in random order.
+The `Random()` method returns one item randomly chosen from the collection. The `Shuffle()` method reorders the collection . If the collection implements `IList<T>`, the items are shuffled in place. Otherwise, the collection is copied and shuffled.
+
+Both the `Random` and `Shuffle` methods accept a parameter of type `System.Random`. If this parameter is not supplied, both functions will create their own. However, allocating your own instance of `System.Random` and then passing it to these functions may provide better performance and possibly a little more randomness.
 
 ## Examples
 
