@@ -23,16 +23,13 @@ namespace RandomEnumerableExtensions.Tests
             for (int i = 0; i < 100; i++)
             {
                 int value = list.Random();
-                Assert.IsTrue(value >= MinValue);
-                Assert.IsTrue(value <= MaxValue);
+                list.Contains(value);
             }
 
             // Shuffle list
             var list2 = list.Shuffle();
             Assert.AreNotEqual(list, list2);                            // IEnumerables are copied
-            Assert.AreEqual(list.Count(), list2.Count());               // Same size
-            Assert.AreEqual(list.Count(), list2.Distinct().Count());    // No duplicates
-            Assert.IsFalse(list.SequenceEqual(list2));                  // Different order
+            AssertIsShuffled(list, list2);
 
             // Returns default on empty collection
             list = Enumerable.Empty<int>();
@@ -52,17 +49,14 @@ namespace RandomEnumerableExtensions.Tests
             for (int i = 0; i < 100; i++)
             {
                 int value = list.Random();
-                Assert.IsTrue(value >= MinValue);
-                Assert.IsTrue(value <= MaxValue);
+                Assert.IsTrue(list.Contains(value));
             }
 
             // Copy list
             var list2 = new List<int>(list);
             // Shuffle copy in place
             list2.Shuffle();
-            Assert.AreEqual(list.Count(), list2.Count());               // Same size
-            Assert.AreEqual(list.Count(), list2.Distinct().Count());    // No duplicates
-            Assert.IsFalse(list.SequenceEqual(list2));                  // Different order
+            AssertIsShuffled(list, list2);
 
             // Returns default on empty collection
             list.Clear();
@@ -71,6 +65,15 @@ namespace RandomEnumerableExtensions.Tests
             // Returns default on null collection
             list = null;
             Assert.IsTrue(list.Random() == default);
+        }
+
+        private void AssertIsShuffled<T>(IEnumerable<T> source, IEnumerable<T> shuffled)
+        {
+            Assert.IsFalse(source.SequenceEqual(shuffled));                  // Different order
+            Assert.AreEqual(source.Count(), shuffled.Count());               // Same size
+            Assert.AreEqual(shuffled.Count(), shuffled.Distinct().Count());  // No duplicates
+            foreach (T item in shuffled)
+                Assert.IsTrue(source.Contains(item));
         }
     }
 }

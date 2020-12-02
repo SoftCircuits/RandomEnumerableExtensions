@@ -9,16 +9,16 @@
     <PackageProjectUrl>https://github.com/SoftCircuits/RandomEnumerableExtensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SoftCircuits/RandomEnumerableExtensions</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>random shuffle extension-methods ienumerable</PackageTags>
-    <PackageReleaseNotes>Reworked code; Added unit tests; Modified package icon.</PackageReleaseNotes>
+    <PackageTags>random shuffle random-shuffle extension-methods ienumerable</PackageTags>
+    <PackageReleaseNotes>Added optimizations, error checking and minor tweaks; Reworked unit tests.</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>The RandomEnumerableExtensions class library implements Random() and Shuffle() extension methods so they are available as methods on any collection that implements IEnumerable&lt;T&gt;.
 
-The Random() method returns one item randomly chosen from the collection. The Shuffle() method reorders the collection. If the collection implements IList&lt;T&gt;, the items are shuffled in place. Otherwise, the collection is copied in random order.</Description>
+ The Random() method returns one item randomly chosen from the collection. The Shuffle() method reorders the collection. If the collection implements IList&lt;T&gt;, the items are shuffled in place. Otherwise, the collection is copied in random order.</Description>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageIcon>Logo_64x64.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
