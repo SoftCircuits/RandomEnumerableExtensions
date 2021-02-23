@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019-2020 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2019-2021 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 using System;
@@ -19,10 +19,10 @@ namespace SoftCircuits.RandomEnumerableExtensions
         /// it is recommended that you supply this parameter.</param>
         /// <returns>A random element from this collection, or <see cref="default{T}"/>
         /// if this collection is empty.</returns>
-        public static T Random<T>(this IEnumerable<T> list, Random rand = null)
+        public static T? Random<T>(this IEnumerable<T> list, Random? rand = null)
         {
             // Check for empty list
-            if (list == null || list.Count() == 0)
+            if (list == null || !list.Any())
                 return default;
 
             // Ensure random number generator
@@ -41,7 +41,7 @@ namespace SoftCircuits.RandomEnumerableExtensions
         /// a random number generator is created. For best performance and randomization,
         /// it is recommended that you supply this parameter.</param>
         /// <returns>A shuffled shallow copy of this collection.</returns>
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random rand = null)
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random? rand = null)
         {
             // Check for empty list
             if (source == null || !source.Any())
@@ -64,7 +64,7 @@ namespace SoftCircuits.RandomEnumerableExtensions
         /// <param name="rand">An instance of a random number generator. If not provided,
         /// a random number generator is created. For best performance and randomization,
         /// it is recommended that you supply this parameter.</param>
-        public static void Shuffle<T>(this IList<T> source, Random rand = null)
+        public static void Shuffle<T>(this IList<T> source, Random? rand = null)
         {
             // Null check
             if (source == null)
